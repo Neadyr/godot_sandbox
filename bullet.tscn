@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c2gr51uaiyruk" path="res://bullet.gd" id="1_v7oki"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2c62f"]
+radius = 3.16228
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_gyfs4"]
 
@@ -13,5 +14,5 @@ script = ExtResource("1_v7oki")
 shape = SubResource("CircleShape2D_2c62f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(18, 18)
+scale = Vector2(8, 8)
 texture = SubResource("CanvasTexture_gyfs4")
