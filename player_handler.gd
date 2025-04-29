@@ -12,7 +12,7 @@ var bullet_cooldown = 0.1
 var bullet_timer = 0
 
 func _physics_process(delta: float) -> void:
-	var mouse_position: Vector2 = get_viewport().get_mouse_position()
+	#var mouse_position: Vector2 = get_viewport().get_mouse_position()
 	if (bullet_timer >= 0):
 		bullet_timer -= delta
 	if (Input.is_action_pressed("tir")):

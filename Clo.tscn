@@ -1,12 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfi7gsn5l3ssw"]
+[gd_scene load_steps=6 format=3 uid="uid://cfi7gsn5l3ssw"]
 
 [ext_resource type="Script" uid="uid://bl5k3hnwpyyhe" path="res://Exercices.gd" id="1_pyfwl"]
-[ext_resource type="Script" uid="uid://cwdehig4mgb7c" path="res://player_handler.gd" id="2_erpki"]
-[ext_resource type="PackedScene" uid="uid://rydxldyufvfo" path="res://bullet.tscn" id="3_iba6c"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyfs4"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_2c62f"]
+[ext_resource type="PackedScene" uid="uid://ct83wixtolbo8" path="res://player.tscn" id="2_pyfwl"]
+[ext_resource type="Script" uid="uid://clgahoyi587wn" path="res://enemy.gd" id="4_erpki"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5x1h"]
 
@@ -15,19 +11,11 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_pyfwl")
 
-[node name="Player" type="CharacterBody2D" parent="."]
-script = ExtResource("2_erpki")
-bullet_scene = ExtResource("3_iba6c")
-
-[node name="Hitbox" type="CollisionShape2D" parent="Player"]
-shape = SubResource("RectangleShape2D_gyfs4")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-scale = Vector2(20, 20)
-texture = SubResource("CanvasTexture_2c62f")
+[node name="Player" parent="." instance=ExtResource("2_pyfwl")]
 
 [node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(39, 0)
+script = ExtResource("4_erpki")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 rotation = 0.786822
