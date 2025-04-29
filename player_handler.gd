@@ -20,12 +20,13 @@ func _physics_process(delta: float) -> void:
 			print("instantiating...")
 			var bullet = bullet_scene.instantiate()
 			bullet.global_position = self.global_position
-			print("bullet position", position )
-			print("player position",self.global_position )
+			print("bullet position", position)
+			print("player position",self.global_position)
 			bullet.velocity = (get_viewport().get_mouse_position() - self.global_position).normalized() * bullet.speed
 			bullet.rotation = bullet.velocity.angle()
 			get_parent().add_child(bullet)
 			bullet_timer = bullet_cooldown
+			#test
 	if (dash_current_timer >= 0):
 		dash_current_timer -= delta
 	var dash_strength = 3000
@@ -59,10 +60,8 @@ func _physics_process(delta: float) -> void:
 			is_dashing = true
 			dash_velocity = direction.normalized() * dash_strength
 			dash_current_timer = dash_cooldown
-		
 	if (is_dashing):
 		dash_velocity = dash_velocity.lerp(Vector2.ZERO, dash_friction * delta)
-
 		if dash_velocity.length() < 2:
 			dash_velocity = Vector2.ZERO
 			is_dashing = false

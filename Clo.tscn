@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cfi7gsn5l3ssw"]
 
-[ext_resource type="Script" uid="uid://bl5k3hnwpyyhe" path="res://Exercices.gd" id="1_0f027"]
-[ext_resource type="Script" uid="uid://cwdehig4mgb7c" path="res://player_handler.gd" id="2_2c62f"]
-[ext_resource type="PackedScene" uid="uid://rydxldyufvfo" path="res://bullet.tscn" id="3_gyfs4"]
+[ext_resource type="Script" uid="uid://bl5k3hnwpyyhe" path="res://Exercices.gd" id="1_pyfwl"]
+[ext_resource type="Script" uid="uid://cwdehig4mgb7c" path="res://player_handler.gd" id="2_erpki"]
+[ext_resource type="PackedScene" uid="uid://rydxldyufvfo" path="res://bullet.tscn" id="3_iba6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gyfs4"]
 
@@ -13,11 +13,11 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_8mm7a"]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_0f027")
+script = ExtResource("1_pyfwl")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-script = ExtResource("2_2c62f")
-bullet_scene = ExtResource("3_gyfs4")
+script = ExtResource("2_erpki")
+bullet_scene = ExtResource("3_iba6c")
 
 [node name="Hitbox" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_gyfs4")
