@@ -1,23 +1,30 @@
 extends CharacterBody2D
 var dash_velocity = Vector2.ZERO
 var is_dashing = false
-var dash_cooldown = 5
+var dash_cooldown = 1
 var dash_current_timer = 0
 var stamina_max = 100
 var current_stamina = stamina_max
+var is_sprinting = false
+var sprint_speed: float = 1
+@export var bullet_scene: PackedScene
 
 func _physics_process(delta: float) -> void:
-	print(dash_current_timer)
+	var mouse_position: Vector2 = get_viewport().get_mouse_position()
+	if (Input.is_action_pressed("tir")):
+		print("instantiating...")
+		var bullet = bullet_scene.instantiate()
+		bullet.global_position = self.global_position
+		print("bullet position", position )
+		print("player position",self.global_position )
+		bullet.velocity = (get_viewport().get_mouse_position() - self.global_position).normalized() * bullet.speed / 2
+		get_parent().add_child(bullet)
 	if (dash_current_timer >= 0):
 		dash_current_timer -= delta
 	var dash_strength = 3000
 	var dash_friction = 15
-	
 	var direction = Vector2.ZERO
-	var dash_multiplier: int = 1
 	var speed: float = 300
-	var sprint_speed: float = 1
-
 	if (Input.is_action_pressed("ui_right")):
 		direction.x += 1
 	if (Input.is_action_pressed("ui_left")):
@@ -26,8 +33,19 @@ func _physics_process(delta: float) -> void:
 		direction.y -= 1
 	if (Input.is_action_pressed("ui_down")):
 		direction.y += 1
-	if (Input.is_action_pressed("sprint")):
-		sprint_speed = 1.5
+	if (Input.is_action_just_released("sprint")):
+		is_sprinting = false
+	if (Input.is_action_just_pressed("sprint")):
+		is_sprinting = true
+		
+	if (is_sprinting && current_stamina > 0 ):
+			sprint_speed = 1.5
+			current_stamina -= delta * 10
+	else:
+		is_sprinting = false
+		if (current_stamina < 100):
+			sprint_speed = 1
+			current_stamina += delta * 10
 	if (dash_current_timer <= 0):
 		if (Input.is_action_just_pressed("dash")):
 			print("dash")
@@ -41,6 +59,5 @@ func _physics_process(delta: float) -> void:
 		if dash_velocity.length() < 2:
 			dash_velocity = Vector2.ZERO
 			is_dashing = false
-	print("dash_velocity", dash_velocity)
 	velocity = direction.normalized() * speed * sprint_speed + dash_velocity 
 	move_and_slide()
