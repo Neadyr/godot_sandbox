@@ -1,6 +1,6 @@
 extends Area2D
 var velocity = Vector2.ZERO
-var speed = 50
+var speed = 30
 func _ready():
 	print("Nouvelle balle avec vitesse :", velocity)
 
