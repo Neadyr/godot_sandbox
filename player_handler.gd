@@ -26,7 +26,6 @@ func _physics_process(delta: float) -> void:
 			bullet.rotation = bullet.velocity.angle()
 			get_parent().add_child(bullet)
 			bullet_timer = bullet_cooldown
-			#test
 	if (dash_current_timer >= 0):
 		dash_current_timer -= delta
 	var dash_strength = 3000
