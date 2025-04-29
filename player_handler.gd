@@ -17,11 +17,8 @@ func _physics_process(delta: float) -> void:
 		bullet_timer -= delta
 	if (Input.is_action_pressed("tir")):
 		if (bullet_timer < 0):
-			print("instantiating...")
 			var bullet = bullet_scene.instantiate()
 			bullet.global_position = self.global_position
-			print("bullet position", position)
-			print("player position",self.global_position)
 			bullet.velocity = (get_viewport().get_mouse_position() - self.global_position).normalized() * bullet.speed
 			bullet.rotation = bullet.velocity.angle()
 			get_parent().add_child(bullet)
@@ -55,7 +52,6 @@ func _physics_process(delta: float) -> void:
 			current_stamina += delta * 10
 	if (dash_current_timer <= 0):
 		if (Input.is_action_just_pressed("dash")):
-			print("dash")
 			is_dashing = true
 			dash_velocity = direction.normalized() * dash_strength
 			dash_current_timer = dash_cooldown
