@@ -1,3 +1,5 @@
-[gd_scene load_steps=0 format=3 uid="uid://c2uxnnbsdvnmu"]
+[gd_scene format=3 uid="uid://c2uxnnbsdvnmu"]
 
 [node name="Alex" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
