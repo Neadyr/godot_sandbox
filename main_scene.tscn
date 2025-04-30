@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlkblyiq8jfjg"]
+
+[ext_resource type="Script" uid="uid://bl5k3hnwpyyhe" path="res://Exercices.gd" id="1_0f027"]
+[ext_resource type="Script" uid="uid://cwdehig4mgb7c" path="res://Clo/player_handler.gd" id="2_2c62f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyfs4"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2c62f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5x1h"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_8mm7a"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0f027")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("2_2c62f")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_gyfs4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(20, 20)
+texture = SubResource("CanvasTexture_2c62f")
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(39, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+rotation = 0.786822
+shape = SubResource("RectangleShape2D_d5x1h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+position = Vector2(0, 5.96046e-07)
+rotation = 0.785397
+scale = Vector2(20, 20)
+texture = SubResource("CanvasTexture_8mm7a")

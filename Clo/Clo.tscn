@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfi7gsn5l3ssw"]
+
+[ext_resource type="Script" uid="uid://bl5k3hnwpyyhe" path="res://Exercices.gd" id="1_ulslu"]
+[ext_resource type="PackedScene" uid="uid://ct83wixtolbo8" path="res://Clo/player.tscn" id="2_f6f38"]
+[ext_resource type="PackedScene" uid="uid://cac2ueqqii4wn" path="res://Clo/enemy.tscn" id="3_gkssd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ulslu"]
+size = Vector2(20, 688)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6f38"]
+size = Vector2(1172, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkssd"]
+size = Vector2(1172, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5j75l"]
+size = Vector2(20, 648)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ulslu")
+
+[node name="Player" parent="." instance=ExtResource("2_f6f38")]
+position = Vector2(421, 398)
+
+[node name="Enemy" parent="." instance=ExtResource("3_gkssd")]
+position = Vector2(737, 109)
+
+[node name="left_wall" type="Area2D" parent="." groups=["Wall"]]
+position = Vector2(-10, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left_wall"]
+shape = SubResource("RectangleShape2D_ulslu")
+
+[node name="right_wall" type="Area2D" parent="." groups=["Wall"]]
+position = Vector2(1162, 324)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="right_wall"]
+position = Vector2(-576, -334)
+shape = SubResource("RectangleShape2D_f6f38")
+
+[node name="bottom_wall" type="Area2D" parent="." groups=["Wall"]]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="bottom_wall"]
+position = Vector2(586, 658)
+shape = SubResource("RectangleShape2D_gkssd")
+
+[node name="Top_wall" type="Area2D" parent="." groups=["Wall"]]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Top_wall"]
+position = Vector2(1162, 324)
+shape = SubResource("RectangleShape2D_5j75l")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://rydxldyufvfo"]
+[gd_scene load_steps=5 format=3 uid="uid://rydxldyufvfo"]
 
-[ext_resource type="Script" uid="uid://c2gr51uaiyruk" path="res://bullet.gd" id="1_v7oki"]
+[ext_resource type="Script" uid="uid://c2gr51uaiyruk" path="res://Clo/bullet.gd" id="1_l5atb"]
+[ext_resource type="Script" uid="uid://dicvccwkxdf2b" path="res://Clo/bullet_direct_rc.gd" id="2_aunvl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2c62f"]
 radius = 3.16228
@@ -8,7 +9,7 @@ radius = 3.16228
 [sub_resource type="CanvasTexture" id="CanvasTexture_gyfs4"]
 
 [node name="Bullet" type="Area2D" groups=["Projectile"]]
-script = ExtResource("1_v7oki")
+script = ExtResource("1_l5atb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2c62f")
@@ -16,3 +17,7 @@ shape = SubResource("CircleShape2D_2c62f")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(8, 8)
 texture = SubResource("CanvasTexture_gyfs4")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collide_with_areas = true
+script = ExtResource("2_aunvl")

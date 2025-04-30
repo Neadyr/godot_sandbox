@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var speed = 5
-var max_life = 1000
+var max_life = 100
 var life = max_life
 var is_bumped = false
 var got_bumped = false
