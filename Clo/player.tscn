@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ct83wixtolbo8"]
+[gd_scene load_steps=10 format=3 uid="uid://ct83wixtolbo8"]
 
 [ext_resource type="Script" uid="uid://cwdehig4mgb7c" path="res://Clo/player_handler.gd" id="1_onrkg"]
 [ext_resource type="Script" uid="uid://bdkyghiknpbq6" path="res://Clo/bullet_spawner.gd" id="2_hqtel"]
 [ext_resource type="PackedScene" uid="uid://rydxldyufvfo" path="res://Clo/bullet.tscn" id="2_i3pqv"]
 [ext_resource type="Script" uid="uid://ei3k7mcyu26n" path="res://Clo/canon.gd" id="3_177pn"]
+[ext_resource type="PackedScene" uid="uid://6jo465ywhaa3" path="res://Clo/damage_popup.tscn" id="4_xwdi6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]
 
@@ -33,4 +34,14 @@ script = ExtResource("2_hqtel")
 position = Vector2(4, 0)
 texture = SubResource("CanvasTexture_xwdi6")
 script = ExtResource("3_177pn")
+damagepop_scene = ExtResource("4_xwdi6")
 bullet_scene = ExtResource("2_i3pqv")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -33.0
+offset_top = -42.0
+offset_right = 37.0
+offset_bottom = -19.0
+theme_override_font_sizes/font_size = 15
+text = "Alex le bg"
+horizontal_alignment = 1

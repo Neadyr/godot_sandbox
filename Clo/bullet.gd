@@ -3,6 +3,9 @@ var velocity = Vector2.ZERO
 var speed = 30
 var lifetime = 2
 var damage = 20
+var bullet_life = 20
+signal enemy_hit
+
 func _ready():
 	self.body_entered.connect(_on_body_entered)
 	
@@ -17,9 +20,11 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	if body.is_in_group("Enemy"):
 		body.got_hit(damage)
-		queue_free()
+		bullet_life -= damage
+		emit_signal("enemy_hit", damage, body.global_position)
+		if (bullet_life <= 0):
+			queue_free()
 		
-
 func bounce(normal):
 	velocity = velocity.bounce(normal)
 	

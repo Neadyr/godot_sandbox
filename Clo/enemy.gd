@@ -7,11 +7,11 @@ var got_bumped = false
 var bumped_strength = Vector2.ZERO
 var bump_decrease_speed = 15
 
+
+signal died
+
 func _physics_process(delta):
 	var bump_power = 15 + (max_life - life) / 10
-	var collision = move_and_collide(velocity * delta)
-	if collision:
-		var obj = collision.get_collider()
 	var player = get_node('../Player')
 	var direction = Vector2(player.position - self.position).normalized() * delta
 	if (got_bumped):
@@ -30,5 +30,5 @@ func got_hit(amount: int) -> void:
 	got_bumped = true
 	life -= amount
 	if (life <= 0):
-		print('dead')
+		emit_signal("died")
 		queue_free()

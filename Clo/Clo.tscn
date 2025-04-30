@@ -42,8 +42,26 @@ shape = SubResource("RectangleShape2D_f6f38")
 position = Vector2(586, 658)
 shape = SubResource("RectangleShape2D_gkssd")
 
-[node name="Top_wall" type="Area2D" parent="." groups=["Wall"]]
+[node name="top_wall" type="Area2D" parent="." groups=["Wall"]]
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Top_wall"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="top_wall"]
 position = Vector2(1162, 324)
 shape = SubResource("RectangleShape2D_5j75l")
+
+[node name="monster_count" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 507.0
+offset_top = 6.0
+offset_right = 665.0
+offset_bottom = 65.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+offset_left = 570.0
+offset_top = 57.0
+offset_right = 610.0
+offset_bottom = 80.0

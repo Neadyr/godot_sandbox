@@ -1,5 +1,5 @@
 extends Sprite2D
-
+@export var damagepop_scene: PackedScene
 @export var bullet_scene: PackedScene
 var bullet_cooldown = 0.1
 var bullet_timer = 0
@@ -14,6 +14,7 @@ func _physics_process(delta):
 	if (Input.is_action_pressed("shot") && !is_loading):
 		if (bullet_timer < 0):
 			var bullet = bullet_scene.instantiate()
+			bullet.enemy_hit.connect(generate_damage_label)
 			bullet.global_position = self.global_position
 			bullet.velocity = (get_viewport().get_mouse_position() - self.global_position).normalized() * bullet.speed
 			bullet.rotation = bullet.velocity.angle()
@@ -25,12 +26,18 @@ func _physics_process(delta):
 			is_loading = false
 			var bullet = bullet_scene.instantiate()
 			bullet.global_position = self.global_position
-			
+			bullet.enemy_hit.connect(generate_damage_label)
 			bullet.velocity = (get_viewport().get_mouse_position() - self.global_position).normalized() * bullet.speed * 1.5
 			bullet.rotation = bullet.velocity.angle()
 			bullet.scale = Vector2(current_load, current_load)
 			bullet.damage = bullet.damage * current_load
+			bullet.bullet_life = bullet.damage * current_load
 			get_parent().get_parent().get_parent().add_child(bullet)
 			bullet_timer = bullet_cooldown
 			current_load = 1
-	print(current_load)
+	
+func generate_damage_label(amount, spawn_position):
+	var popup = damagepop_scene.instantiate()
+	popup.position = spawn_position
+	popup.text = amount
+	get_tree().current_scene.add_child(popup)
