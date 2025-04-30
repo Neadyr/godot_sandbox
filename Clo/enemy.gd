@@ -12,11 +12,10 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		var obj = collision.get_collider()
-		print("Collided with :", obj.is_in_group("Player"))
 	var player = get_node('../Player')
 	var direction = Vector2(player.position - self.position).normalized() * delta
 	if (got_bumped):
-		bumped_strength = direction.normalized() * -bump_power
+		bumped_strength = direction.normalized() * - bump_power
 		got_bumped = false
 	if (is_bumped):
 		bumped_strength = bumped_strength.lerp(Vector2.ZERO, bump_decrease_speed * delta)
@@ -33,4 +32,3 @@ func got_hit(amount: int) -> void:
 	if (life <= 0):
 		print('dead')
 		queue_free()
-	print("aie...")

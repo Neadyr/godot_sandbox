@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cfi7gsn5l3ssw"]
 
-[ext_resource type="Script" uid="uid://bl5k3hnwpyyhe" path="res://Exercices.gd" id="1_ulslu"]
+[ext_resource type="Script" uid="uid://bl5k3hnwpyyhe" path="res://Clo/game_manager.gd" id="1_ulslu"]
 [ext_resource type="PackedScene" uid="uid://ct83wixtolbo8" path="res://Clo/player.tscn" id="2_f6f38"]
 [ext_resource type="PackedScene" uid="uid://cac2ueqqii4wn" path="res://Clo/enemy.tscn" id="3_gkssd"]
 
@@ -18,12 +18,10 @@ size = Vector2(20, 648)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ulslu")
+enemy_scene = ExtResource("3_gkssd")
 
 [node name="Player" parent="." instance=ExtResource("2_f6f38")]
 position = Vector2(421, 398)
-
-[node name="Enemy" parent="." instance=ExtResource("3_gkssd")]
-position = Vector2(737, 109)
 
 [node name="left_wall" type="Area2D" parent="." groups=["Wall"]]
 position = Vector2(-10, 324)
