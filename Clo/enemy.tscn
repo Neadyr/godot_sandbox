@@ -7,6 +7,7 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_8mm7a"]
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+collision_mask = 2
 script = ExtResource("1_7k104")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

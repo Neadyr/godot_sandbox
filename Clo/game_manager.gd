@@ -2,7 +2,7 @@ extends Node2D
 var rng = RandomNumberGenerator.new()
 
 @export var enemy_scene: PackedScene
-var number_of_enemy = 15
+var number_of_enemy = 500
 var kill_count = 0
 var score = 0
 
@@ -12,8 +12,8 @@ func _ready():
 	generate_wave()
 
 func _process(_delta):
-	$monster_count.text = 'Wave 01 : %d / %d' %[kill_count, number_of_enemy]
-	$Score.text = '%d points' %score
+	$Player/Camera2D/monster_count.text = 'Wave 01 : %d / %d' %[kill_count, number_of_enemy]
+	$"Player/Camera2D/score".text = '%d points' %score
 	
 func generate_wave():
 	for i in range(number_of_enemy):

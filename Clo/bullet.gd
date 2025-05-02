@@ -14,7 +14,7 @@ func _physics_process(delta):
 	if (lifetime < 0):
 		queue_free()
 	position += velocity * delta * speed
-	queue_redraw()
+	#queue_redraw()
 	$RayCast2D.target_position = velocity.rotated(-rotation).normalized() * 20
 	
 func _on_body_entered(body):
@@ -28,9 +28,9 @@ func _on_body_entered(body):
 func bounce(normal):
 	velocity = velocity.bounce(normal)
 	
-func _draw():
-	if velocity.length() > 0:
-		var dir = velocity.rotated(-rotation).normalized()
-		var end = dir * 20
-		draw_line(Vector2.ZERO, end, Color.ORANGE, 2.0)
-		draw_circle(end, 3, Color.RED)
+#func _draw():
+	#if velocity.length() > 0:
+		#var dir = velocity.rotated(-rotation).normalized()
+		#var end = dir * 20
+		#draw_line(Vector2.ZERO, end, Color.ORANGE, 2.0)
+		#draw_circle(end, 3, Color.RED)

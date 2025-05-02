@@ -1,4 +1,4 @@
 extends Sprite2D
 
 func _physics_process(_delta):
-	self.look_at(get_viewport().get_mouse_position())
+	self.look_at(get_global_mouse_position())
