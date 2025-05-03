@@ -9,7 +9,6 @@ func _ready():
 	print("damaaaage", text)
 	position = position + offset
 func _process(delta):
-	print(position)
 	lifespan -= delta
 	if (lifespan > 0):
 		position += Vector2(0, -0.5) * delta * speed

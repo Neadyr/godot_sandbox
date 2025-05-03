@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://ct83wixtolbo8"]
+[gd_scene load_steps=14 format=3 uid="uid://ct83wixtolbo8"]
 
 [ext_resource type="Script" uid="uid://cwdehig4mgb7c" path="res://Clo/player_handler.gd" id="1_onrkg"]
 [ext_resource type="Script" uid="uid://bdkyghiknpbq6" path="res://Clo/bullet_spawner.gd" id="2_hqtel"]
 [ext_resource type="PackedScene" uid="uid://rydxldyufvfo" path="res://Clo/bullet.tscn" id="2_i3pqv"]
 [ext_resource type="Script" uid="uid://ei3k7mcyu26n" path="res://Clo/canon.gd" id="3_177pn"]
 [ext_resource type="PackedScene" uid="uid://6jo465ywhaa3" path="res://Clo/damage_popup.tscn" id="4_xwdi6"]
+[ext_resource type="Script" uid="uid://cnp0qvwcehai2" path="res://Clo/health_bar.gd" id="6_1f2xj"]
+[ext_resource type="Script" uid="uid://0p1hn2e1lmqd" path="res://Clo/stamina_bar.gd" id="7_db16g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]
 
@@ -13,6 +15,10 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_sweqy"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xwdi6"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1f2xj"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_db16g"]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_onrkg")
@@ -30,7 +36,7 @@ texture = SubResource("CanvasTexture_sweqy")
 offset = Vector2(4, 0)
 script = ExtResource("2_hqtel")
 
-[node name="Sprite2D" type="Sprite2D" parent="bullet_spawner"]
+[node name="Canon" type="Sprite2D" parent="bullet_spawner"]
 position = Vector2(4, 0)
 texture = SubResource("CanvasTexture_xwdi6")
 script = ExtResource("3_177pn")
@@ -45,3 +51,15 @@ offset_bottom = -19.0
 theme_override_font_sizes/font_size = 15
 text = "Alex le bg"
 horizontal_alignment = 1
+
+[node name="Health" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, -15.5)
+scale = Vector2(34, 5)
+texture = SubResource("CanvasTexture_1f2xj")
+script = ExtResource("6_1f2xj")
+
+[node name="Stamina" type="Sprite2D" parent="."]
+position = Vector2(0, 15)
+scale = Vector2(30, 4)
+texture = SubResource("CanvasTexture_db16g")
+script = ExtResource("7_db16g")

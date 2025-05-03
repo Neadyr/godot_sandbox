@@ -16,7 +16,7 @@ func _physics_process(delta):
 			var bullet = bullet_scene.instantiate()
 			bullet.enemy_hit.connect(generate_damage_label)
 			bullet.global_position = self.global_position
-			bullet.velocity = (get_viewport().get_mouse_position() - self.global_position).normalized() * bullet.speed
+			bullet.velocity = (get_global_mouse_position() - self.global_position).normalized() * bullet.speed
 			bullet.rotation = bullet.velocity.angle()
 			get_parent().get_parent().get_parent().add_child(bullet)
 			bullet_timer = bullet_cooldown
@@ -27,12 +27,12 @@ func _physics_process(delta):
 			var bullet = bullet_scene.instantiate()
 			bullet.global_position = self.global_position
 			bullet.enemy_hit.connect(generate_damage_label)
-			bullet.velocity = (get_viewport().get_mouse_position() - self.global_position).normalized() * bullet.speed * 1.5
+			bullet.velocity = (get_global_mouse_position() - self.global_position).normalized() * bullet.speed * 1.5
 			bullet.rotation = bullet.velocity.angle()
 			bullet.scale = Vector2(current_load, current_load)
 			bullet.damage = bullet.damage * current_load
 			bullet.bullet_life = bullet.damage * current_load
-			get_parent().get_parent().get_parent().add_child(bullet)
+			get_tree().current_scene.add_child(bullet)
 			bullet_timer = bullet_cooldown
 			current_load = 1
 	

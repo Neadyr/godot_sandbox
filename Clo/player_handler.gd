@@ -7,7 +7,8 @@ var stamina_max = 100
 var current_stamina = stamina_max
 var is_sprinting = false
 var sprint_speed: float = 1
-
+var health = 100
+var current_canon_load = 1
 func _physics_process(delta: float) -> void:
 	#var mouse_position: Vector2 = get_viewport().get_mouse_position()
 
@@ -43,10 +44,16 @@ func _physics_process(delta: float) -> void:
 			is_dashing = true
 			dash_velocity = direction.normalized() * dash_strength
 			dash_current_timer = dash_cooldown
+			current_stamina -= 20
 	if (is_dashing):
 		dash_velocity = dash_velocity.lerp(Vector2.ZERO, dash_friction * delta)
 		if dash_velocity.length() < 2:
 			dash_velocity = Vector2.ZERO
 			is_dashing = false
-	velocity = direction.normalized() * speed * sprint_speed + dash_velocity 
+	velocity = direction.normalized() * speed * sprint_speed / current_canon_load + dash_velocity
 	move_and_slide()
+func got_hit(amount):
+	health -= 100
+	if (health <= 0):
+		print("Game over, you're dead")
+	

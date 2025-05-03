@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://el1a1wy46xer"]
+
+[ext_resource type="Texture2D" uid="uid://dhpjucobg5iwt" path="res://Alex/Image/Pong/UntitledArtwork3 2.png" id="1_bmv3e"]
+[ext_resource type="Texture2D" uid="uid://c0i8sswdkr2ae" path="res://Alex/Image/Pong/UntitledArtwork3.png" id="2_q0ukc"]
+[ext_resource type="Texture2D" uid="uid://y6fj66dxwb6e" path="res://Alex/Image/Pong/UntitledArtwork4 2.png" id="3_2mpn6"]
+[ext_resource type="Texture2D" uid="uid://d3hlmljqiakog" path="res://Alex/Image/Pong/UntitledArtwork5.png" id="3_q0ukc"]
+[ext_resource type="Texture2D" uid="uid://k4vnoku606pv" path="res://Alex/Image/Pong/UntitledArtwork4.png" id="4_oj8xu"]
+
+[sub_resource type="Curve" id="Curve_q0ukc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.52809), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_q0ukc"]
+offsets = PackedFloat32Array(0, 0.841463, 1)
+colors = PackedColorArray(1, 0.792157, 0.313726, 1, 1, 0.101961, 0.117647, 1, 0, 0.101961, 0.117647, 0)
+
+[node name="PongUi" type="Node2D"]
+texture_filter = 1
+scale = Vector2(10, 10)
+
+[node name="Player_1" type="Sprite2D" parent="."]
+position = Vector2(14.5, 33.2)
+texture = ExtResource("1_bmv3e")
+
+[node name="Player_2" type="Sprite2D" parent="."]
+position = Vector2(101.6, 25.6)
+texture = ExtResource("2_q0ukc")
+
+[node name="Fire" type="Sprite2D" parent="."]
+position = Vector2(28.4, 23.3)
+rotation = 1.5708
+texture = ExtResource("3_q0ukc")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(44.5, 28.2)
+scale = Vector2(1, 1)
+amount = 1000
+local_coords = true
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 4.0
+gravity = Vector2(0, -30)
+radial_accel_min = -15.1
+radial_accel_max = 1.89
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_q0ukc")
+color_ramp = SubResource("Gradient_q0ukc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(74.7, 28.3)
+scale = Vector2(1, 1)
+amount = 1000
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 4.0
+gravity = Vector2(0, -30)
+radial_accel_min = -15.1
+radial_accel_max = 1.89
+scale_amount_min = 10.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_q0ukc")
+color_ramp = SubResource("Gradient_q0ukc")
+
+[node name="Ball_1" type="Sprite2D" parent="."]
+position = Vector2(28.4, 30.3)
+texture = ExtResource("3_2mpn6")
+
+[node name="Ball_2" type="Sprite2D" parent="."]
+position = Vector2(44.5, 28.2)
+texture = ExtResource("4_oj8xu")
