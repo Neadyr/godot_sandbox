@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+[gd_scene load_steps=7 format=3 uid="uid://cfi7gsn5l3ssw"]
+=======
 [gd_scene load_steps=7 format=4 uid="uid://cfi7gsn5l3ssw"]
+>>>>>>> e52eeeb8aaec225e4c762ba409830f6a39926a37
 
 [ext_resource type="Script" uid="uid://bl5k3hnwpyyhe" path="res://Clo/game_manager.gd" id="1_ulslu"]
 [ext_resource type="PackedScene" uid="uid://ct83wixtolbo8" path="res://Clo/player.tscn" id="2_f6f38"]
@@ -72,10 +76,18 @@ texture_region_size = Vector2i(32, 32)
 6:5/0 = 0
 7:5/0 = 0
 
+<<<<<<< HEAD
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkssd"]
+size = Vector2(1172, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5j75l"]
+size = Vector2(20, 648)
+=======
 [sub_resource type="TileSet" id="TileSet_5j75l"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gkssd")
+>>>>>>> e52eeeb8aaec225e4c762ba409830f6a39926a37
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ulslu")
@@ -88,7 +100,26 @@ position = Vector2(587, 325)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-10, -2)
 
+<<<<<<< HEAD
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left_wall"]
+shape = SubResource("RectangleShape2D_ulslu")
+
+[node name="bottom_wall" type="Area2D" parent="." groups=["Wall"]]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="bottom_wall"]
+position = Vector2(586, 658)
+shape = SubResource("RectangleShape2D_gkssd")
+
+[node name="top_wall" type="Area2D" parent="." groups=["Wall"]]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="top_wall"]
+position = Vector2(1162, 324)
+shape = SubResource("RectangleShape2D_5j75l")
+
+[node name="monster_count" type="Label" parent="."]
+=======
 [node name="monster_count" type="Label" parent="Player/Camera2D"]
+>>>>>>> e52eeeb8aaec225e4c762ba409830f6a39926a37
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5

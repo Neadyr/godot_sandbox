@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://csga3wtc1wsy7"]
+
+[ext_resource type="Script" uid="uid://f5iyyi4kkpgj" path="res://Pong/ball.gd" id="1_gpwk8"]
+[ext_resource type="Script" uid="uid://cqux4tms4kv30" path="res://Pong/ball_raycast.gd" id="2_gpwk8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2c62f"]
+radius = 3.16228
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_gyfs4"]
+
+[node name="Ball" type="Area2D" groups=["Projectile"]]
+script = ExtResource("1_gpwk8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2c62f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(8, 8)
+texture = SubResource("CanvasTexture_gyfs4")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collide_with_areas = true
+script = ExtResource("2_gpwk8")
