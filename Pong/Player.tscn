@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://1nbul8k1snsn"]
+
+[ext_resource type="Script" uid="uid://yfv8agkjw51s" path="res://Pong/player.gd" id="1_35epy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_verfs"]
+size = Vector2(20, 205)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_35epy"]
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_35epy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
+position = Vector2(0, 92.5)
+shape = SubResource("RectangleShape2D_verfs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 92.5)
+scale = Vector2(20, 205)
+texture = SubResource("CanvasTexture_35epy")
