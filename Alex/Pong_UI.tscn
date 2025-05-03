@@ -31,33 +31,18 @@ position = Vector2(28.4, 23.3)
 rotation = 1.5708
 texture = ExtResource("3_q0ukc")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(44.5, 28.2)
+[node name="Fire_Particule" type="CPUParticles2D" parent="."]
+position = Vector2(57.7, 30.8)
 scale = Vector2(1, 1)
-amount = 1000
-local_coords = true
+amount = 2000
+preprocess = 0.4
 draw_order = 1
 emission_shape = 1
 emission_sphere_radius = 4.0
-gravity = Vector2(0, -30)
-radial_accel_min = -15.1
-radial_accel_max = 1.89
-scale_amount_max = 2.0
-scale_amount_curve = SubResource("Curve_q0ukc")
-color_ramp = SubResource("Gradient_q0ukc")
-
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
-position = Vector2(74.7, 28.3)
-scale = Vector2(1, 1)
-amount = 1000
-draw_order = 1
-emission_shape = 1
-emission_sphere_radius = 4.0
-gravity = Vector2(0, -30)
-radial_accel_min = -15.1
-radial_accel_max = 1.89
-scale_amount_min = 10.0
-scale_amount_max = 10.0
+gravity = Vector2(0, -300)
+radial_accel_min = -100.0
+scale_amount_min = 11.0
+scale_amount_max = 11.0
 scale_amount_curve = SubResource("Curve_q0ukc")
 color_ramp = SubResource("Gradient_q0ukc")
 
