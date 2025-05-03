@@ -22,7 +22,7 @@ grow_vertical = 2
 
 [node name="Panel2" type="Panel" parent="Panel"]
 layout_mode = 0
-offset_left = 288.0
-offset_top = 158.0
-offset_right = 328.0
-offset_bottom = 198.0
+offset_left = 304.0
+offset_top = 197.0
+offset_right = 344.0
+offset_bottom = 237.0
